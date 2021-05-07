@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl,FormGroup,Validators } from '@angular/forms'
+//import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'trainreservation';
+  //myimage:string= "assets/images/img1.jpg";
 }

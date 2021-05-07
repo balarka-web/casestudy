@@ -6,8 +6,235 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">  
+	
+	
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+</head>
+<body class="mat-typography">
+	<!--<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="booking-cta">
+							<h1>Book your Train today</h1>
+							<p>Destinations are planned but the journey that matters</p>
+						</div>
+					</div>
+					<div class="col-md-7 col-md-offset-1">
+						<div class="booking-form">
+							<form>
+								<div class="form-group">
+									<div class="form-checkbox">
+										<label for="roundtrip">
+											<input type="radio" id="roundtrip" name="flight-type">
+											<span></span>Roundtrip
+										</label>
+										<label for="one-way">
+											<input type="radio" id="one-way" name="flight-type">
+											<span></span>One way
+										</label>
+										<!--<label for="multi-city">
+											<input type="radio" id="multi-city" name="flight-type">
+											<span></span>Multi-City
+										</label>-->
+									<!--</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">From City</span>
+											<input class="form-control" type="text" placeholder="City or Station" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">To City</span>
+											<input class="form-control" type="text" placeholder="City or Station">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Departing</span>
+											<input class="form-control" type="date" required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Returning</span>
+											<input class="form-control" type="date" required>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Adults (18+)</span>
+											<select class="form-control">
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Children (0-17)</span>
+											<select class="form-control">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Travel class</span>
+											<select class="form-control">
+												<option>General class</option>
+												<option>AC 2 Tier class</option>
+												<option>AC 3 Tier class</option>
+											</select>
+											<span class="select-arrow"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<button class="submit-btn">Show Trains</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title> Signup Form</title>
+          
+          
+<link rel="stylesheet" 
+href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity=
+"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous">    
+          
+<link rel="stylesheet" type="text/css" href="style.css">
+          
 </head>
 <body>
+      
+    <br>
+    <br>
+    <br>
+    <div class="container" >
+        <div class="row">
+        <div class="col-md-3">
+                      
+        </div>
+                  
+        <div class="col-md-6 main">
+                      
+            <form action="/sign_up" method="post">
+                      
+            <h1> Signup form </h1>
+                              
+            <input class="box" type="text" name="name" id="name" 
+            placeholder="Name"  required /><br>
+                              
+            <input class="box" type="email" name="email" id="email" 
+            placeholder="E-Mail " required /><br>
+                              
+            <input class="box" type="password" name="password" 
+            id="password" placeholder="Password " required/><br>
+                              
+            <input class="box" type="text" name="phone" id="phone"  
+            placeholder="Phone Number " required/><br>
+                        <br>
+            <input type="submit" id="submitDetails"  
+            name="submitDetails" value="Submit" /><br>
+                      
+            </form>
+                      
+        </div>
+                  
+                  
+        <div class="col-md-3">
+        </div>
+                  
+    </div>
+    </div>
+</body>
+</html>-->    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <app-root></app-root>
+  <app-background></app-background>
 </body>
 </html>
