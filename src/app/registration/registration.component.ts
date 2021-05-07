@@ -47,9 +47,7 @@ export class RegistrationComponent implements OnInit {
       
       
       
-      if (this.registerForm.invalid) {
-          return;
-      }
+     
 
       alert('REGISTRATION SUCCESS!');
       //\n\n' + JSON.stringify(this.registerForm.value))

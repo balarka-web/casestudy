@@ -115,17 +115,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const app=express();
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 //mongoose.connect('mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority',{ useNewUrlParser: true}, { useUnifiedTopology : true });
 
 const url=`mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority`;
-const notesSchema={
+
+const register={
   firstName:String,
 lastName:String,
 email:String,
 password:String
 }
-
+const Register = mongoose.model("regform",register);
 
 app.get("/",function(req,res){
   res.sendFile(__dirname + "/registration.component.html");
@@ -134,6 +135,55 @@ app.listen(3000,function(){
   console.log("server running on 3000");
 })
 
+app.get("/register", function(req, res){
+    
+    var firstName = req.body.firstname;
+    var password = req.body.pass;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+
+    /*Register.create(dbObject, function(err, user){
+        if(err){  
+          console.log("SOme erorr when saving  regising user");
+          res.send("unable to save user");
+        }else{
+          console.log("user saved");
+          res.send("user data saved succesfullt, checm in atlas");
+        }
+    });*/
+
+
+   
+});
+
+app.post("/register", function(req, res){
+   
+  var firstName = req.body.firstname;
+    var password = req.body.pass;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+   
+});
 
 app.post("/add",function(req , res){
 
@@ -146,7 +196,7 @@ password:req.body.password
 newNote.save()
 })
 
-const Note=mongoose.model("regform",notesSchema);
+
 
 const connectionParams={
   useNewUrlParser: true,
@@ -155,7 +205,9 @@ const connectionParams={
 }
 
 
-mongoose.connect(url,connectionParams)
+mongoose.connect(url,connectionParams).then(()=>{
+  console.log("connected to db");
+})
 
 
 
