@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HttpClientModule } from '@angular/common/http';
+//import { HttpClientModule } from '@angular/common/http';
  
 //import { NavbarModule, WavesModule, ButtonsModule } from '@angular-bootstrap-md';
 
@@ -36,8 +36,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatSelectModule } from '@angular/material/select';
+import { UserComponent } from './user/user.component';
+import { SignUpComponent } from './user/sign-up/sign-up.component';
 
 //import { MatRadioModule } from '@angular/material/radio';
+import { RouterModule } from '@angular/router';
+
+import { appRoutes } from './routes';
+import { SignInComponent } from './user/sign-in/sign-in.component'; 
+
+//import { MatCardModule } from '@angular/material/card';
+
+
+
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { AuthGuard } from './auth/auth.guard'
+import { UserService } from './shared/user.service';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PaymentComponent } from './payment/payment.component'
+
+
 
 
 @NgModule({
@@ -49,7 +68,12 @@ import { MatSelectModule } from '@angular/material/select';
     TrainfaresComponent,
     HomeComponent,
     AboutComponent,
-    ReservationComponent
+    ReservationComponent,
+    UserComponent,
+    SignUpComponent,
+    SignInComponent,
+    UserProfileComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +96,23 @@ import { MatSelectModule } from '@angular/material/select';
 
   MatSelectModule,
   
-  MatRadioModule
-  ],
-  providers: [],
+  MatRadioModule,
+  
+    RouterModule.forRoot(appRoutes)
+
+
+
+],
+
+//original
+  //providers: [],
+
+  //changed entire below thing
+  providers:[{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },AuthGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

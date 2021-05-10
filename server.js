@@ -111,7 +111,7 @@ require('./app/routes/user.routes')(app);  */
 
 /*original code*/
 
-const express = require('express');
+/*const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const app=express();
@@ -162,7 +162,7 @@ mongoose.connect(url,connectionParams)
 
 app.get('*',(req,res) =>{
   res.sendFile(path.join(__dirname + '/app/registration.component.html'));
-})
+})*/
 
 
 
@@ -214,50 +214,254 @@ mongoose.connect(url,connectionParams)
 
 
 
+/*const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const app=express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+const url=`mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority`;
+
+
+const register={
+username:String,
+email:String,
+password:String
+}
+
+
+const Register = mongoose.model("regform",register);
+
+
+app.get("/",function(req,res){
+  res.sendFile(__dirname + "/registration.component.html");
+ app.listen(3000,function(){
+  console.log("server running on 3000");
+})
 
 
 
 
-/*const formSchema = new mongoose.Schema(
-  {
-    data: Object,
-  },
-  { collection: `register` }
-);
+/*app.get("/register", function(req, res){
 
-const Form = mongoose.model("Form", formSchema);
+  var firstName = req.body.firstname;
+  var password = req.body.pass;
 
-const formData = (bodyData) => {
-  Form({ data: bodyData }).save((err) => {
-    if (err) {
-      throw err;
-    }
-  });
-};
+  var dbObject = {
+    firstName : firstName,
+    password : password
+  };*/
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+  
+  
+  
+  /*app.get("/register", function(req, res){
 
-app.set("view engine", "ejs");
-app.use(express.static("public"));
+    var firstName = req.body.firstname;
+    var password = req.body.pass;
 
-app.get("/", (req, res) => {
-  res.render("index");
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");*/
+
+
+
+    /*Register.create(dbObject, function(err, user){
+        if(err){  
+          console.log("SOme erorr when saving  regising user");
+          res.send("unable to save user");
+        }else{
+          console.log("user saved");
+          res.send("user data saved succesfullt, checm in atlas");
+        }
+    });*/
+
+
+
+//});
+
+/*app.post("/register", function(req, res){
+
+  var firstName = req.body.firstname;
+    var password = req.body.pass;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+
+    app.get("/register", function(req, res){
+
+    var firstName = req.body.firstname;
+    var password = req.body.pass;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");*/
+
+
+
+    /*Register.create(dbObject, function(err, user){
+        if(err){  
+          console.log("SOme erorr when saving  regising user");
+          res.send("unable to save user");
+        }else{
+          console.log("user saved");
+          res.send("user data saved succesfullt, checm in atlas");
+        }
+    });*/
+
+
+
+//});
+
+/*app.post("/register", function(req, res){
+
+  var firstName = req.body.firstname;
+    var password = req.body.pass;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+    mongoose.connect(url,connectionParams).then(()=>{
+      console.log("connected to db");
+    })
+
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//modified
+
+/*const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const app=express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const url=`mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority`;
+
+
+
+const register={
+ email:String,
+ username:String,
+password:String
+}
+
+
+const Register = mongoose.model("regform",register);
+
+app.get("/",function(req,res){
+  app.listen(3000,function(){
+  res.sendFile(__dirname + "/registration.component.html");
+  console.log("server running on 3000");
+})
+})
+
+
+
+
+
+
+
+
+app.post("/register", function(req, res){
+
+  var email=req.body.email;
+  var username = req.body.username;
+    var password = req.body.password;
+
+    var dbObject = {
+      email:email,
+      username : username,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+
 });
 
-app.post("/", urlencodedParser, (req, res) => {
-  formData(req.body);
-  res.render("success", { name: req.body.name });
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post("/add",function(req , res){
+
+  let newNote=new Note({
+email:req.body.email,
+username:req.body.username,
+password:req.body.password
 });
+newNote.save()
+})
 
-server.listen(3030);*/
+
+const connectionParams={
+  useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true 
+}
 
 
-/*const http=require('http');
-const server=http.createServer((req,res)=>{
-  console.log(req.url,req.method);
-});
-server.listen(3000,'localhost',()=>{
-  console.log('listening');
+
+
+mongoose.connect(url,connectionParams).then(()=>{
+  console.log("connected to db");
 })*/
 
 
@@ -276,88 +480,139 @@ server.listen(3000,'localhost',()=>{
 
 
 
-/*var express = require("express")
-var bodyParser = require("body-parser")
-var mongoose = require("mongoose")
 
-const app = express()
 
-app.use(bodyParser.json())
-app.use(express.static('public'))
-app.use(bodyParser.urlencoded({
-    extended:true
-}))
 
-mongoose.connect('mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 
-var db = mongoose.connection;
 
-db.on('error',()=>console.log("Error in Connecting to Database"));
-db.once('open',()=>console.log("Connected to Database"))
 
-app.post("/sign_up",(req,res)=>{
-    var name = req.body.name;
+
+
+
+
+
+
+
+
+
+//exref
+
+
+
+/*const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const app=express();
+app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.connect('mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority',{ useNewUrlParser: true}, { useUnifiedTopology : true });
+
+
+
+//const url=`mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority`;
+
+
+
+
+const register={
+email:String,
+username:String,
+password: String
+}
+const Register = mongoose.model("regform",register);
+
+app.get("/",function(req,res){
+ // res.sendFile(__dirname + "/registration.component.html");
+res.sendFile(__dirname + "/src/app/registration/registration.component.html");
+
+})
+app.listen(3000,function(){
+  console.log("server running on 3000");
+})
+
+app.get("/register", function(req, res){
+    
     var email = req.body.email;
-    //var phno = req.body.phno;
+    var username=req.body.username;
     var password = req.body.password;
 
-    var data = {
-        "name": name,
-        "email" : email,
-        //"phno": phno,
-        "password" : password
-    }
+    var dbObject = {
+      email : email,
+      username:username,
+      password : password
+    };
 
-    db.collection('register').insertOne(data,(err,collection)=>{
-        if(err){
-            throw err;
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+
+    /*Register.create(dbObject, function(err, user){
+        if(err){  
+          console.log("SOme erorr when saving  regising user");
+          res.send("unable to save user");
+        }else{
+          console.log("user saved");
+          res.send("user data saved succesfullt, checm in atlas");
         }
-        console.log("Record Inserted Successfully");
-    });
+    }); */
 
-    return res.redirect('signup_success.html')
 
+   
+//});
+
+/*app.post("/register", function(req, res){
+   
+  var email = req.body.email;
+  var username=req.body.username;  
+  var password = req.body.password;
+
+    var dbObject = {
+      email : email,
+      username : userame,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+   
+});
+
+app.post("/add",function(req , res){
+
+  let newNote=new Note({
+email:req.body.email,
+userame:req.body.username,
+password:req.body.password
+});
+newNote.save()
 })
 
 
-app.get("/",(req,res)=>{
-    res.set({
-        "Allow-access-Allow-Origin": '*'
-    })
-    return res.redirect('b.html');
-}).listen(3000);
+
+const connectionParams={
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true 
+}
 
 
-console.log("Listening on PORT 3000");*/
-
-
-
-
-
+/*mongoose.connect(url,connectionParams).then(()=>{
+  console.log("connected to db");
+})*/
 
 
 
 
-
-/*var express = require("express");
-var app = express();
-var port = 3000;
- 
-app.get("/", (req, res) => {
-res.send("Hello World");
-});
- 
-app.use("/", (req, res) => {
-  res.sendFile("/b.html");
-});
-
-
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
-});*/
+/*app.get('*',(req,res) =>{
+  res.sendFile(path.join(__dirname + '/app/registration.component.html'));
+})*/
 
 
 
@@ -374,49 +629,121 @@ app.listen(port, () => {
 
 
 
-/*const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
 
-const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:8081"
-};
 
-app.use(cors(corsOptions));
 
-// parse requests of content-type - application/json
-app.use(bodyParser.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
+
+
+
+
+
+
+
+
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const app=express();
 app.use(bodyParser.urlencoded({ extended: true }));
+//mongoose.connect('mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority',{ useNewUrlParser: true}, { useUnifiedTopology : true });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+const url=`mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority`;
+
+const register={
+  firstName:String,
+password:String
+}
+const Register = mongoose.model("regform",register);
+
+app.get("/register",function(req,res){
+  res.sendFile(__dirname + "./src/app/registration/registration.component.html");
+})
+app.listen(3000,function(){
+  console.log("server running on 3000");
+})
+
+/*app.get("/register", function(req, res){
+    
+    var firstName = req.body.firstName;
+    var password = req.body.password;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");*/
+
+
+
+    /*Register.create(dbObject, function(err, user){
+        if(err){  
+          console.log("SOme erorr when saving  regising user");
+          res.send("unable to save user");
+        }else{
+          console.log("user saved");
+          res.send("user data saved succesfullt, checm in atlas");
+        }
+    });*/
+
+
+   
+//});
+
+app.post("/register", function(req, res){
+   
+  var firstName = req.body.firstName;
+    var password = req.body.password;
+
+    var dbObject = {
+      firstName : firstName,
+      password : password
+    };
+
+    var newUser = new Register(dbObject);
+    newUser.save();
+
+    res.send("user saved succsuflly");
+
+
+   
 });
 
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});*/
+app.post("/add",function(req , res){
+
+  let newNote=new Note({
+firstName:req.body.firstName,
+lastName:req.body.lastName,
+email:req.body.email,
+password:req.body.password
+});
+newNote.save()
+})
+
+
+
+const connectionParams={
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true 
+}
+
+
+mongoose.connect(url,connectionParams).then(()=>{
+  console.log("connected to db");
+})
 
 
 
 
+app.get('/register',(req,res) =>{
+  res.sendFile(path.join(__dirname + '/app/registration.component.html'));
+})
 
-
-
-
-
-
-
-
-/*require("./models/db.js");
-const express=require('express');
-var app=express();
-app.listen(3000,() =>{
-  console.log("port started");
-});*/

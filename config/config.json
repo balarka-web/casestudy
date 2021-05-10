@@ -1,0 +1,19 @@
+{
+   "development": {
+       "PORT": 3000,
+        "MONGODB_URI": "mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority" ,
+    
+    
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
+    },
+    "production": {
+        "PORT": 80,
+        "MONGODB_URI": "mongodb+srv://balarka:balarka@test.dmiis.mongodb.net/regform?retryWrites=true&w=majority" ,
+    
+    
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2m"
+    
+    }
+}

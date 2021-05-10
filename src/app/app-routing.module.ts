@@ -10,7 +10,9 @@ import { AboutComponent } from './about/about.component';
 
 import { ReservationComponent } from './reservation/reservation.component';
 
+import { PaymentComponent } from './payment/payment.component'
 
+import { appRoutes } from './routes'
 
 const routes: Routes = [
   {
@@ -36,7 +38,12 @@ const routes: Routes = [
     component:TrainfaresComponent },
     {
       path:'reservation',
-      component:ReservationComponent }
+      component:ReservationComponent },
+    
+      
+      {
+        path:'payment',
+        component:PaymentComponent }
       
 
 ];

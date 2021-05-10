@@ -298,7 +298,7 @@ section {
 section .section-title {
     text-align: center;
     color: #007b5e;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 	/*50px given*/
     text-transform: uppercase;
 }
