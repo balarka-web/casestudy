@@ -14,6 +14,9 @@ import { PaymentComponent } from './payment/payment.component'
 
 import { appRoutes } from './routes'
 
+
+import { HelpComponent } from './help/help.component'
+
 const routes: Routes = [
   {
     path:'home',
@@ -43,8 +46,13 @@ const routes: Routes = [
       
       {
         path:'payment',
-        component:PaymentComponent }
-      
+        component:PaymentComponent },
+        
+        {
+          path:'help',
+          component:HelpComponent }
+        
+
 
 ];
 

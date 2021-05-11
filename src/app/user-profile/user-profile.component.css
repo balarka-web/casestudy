@@ -1,0 +1,17 @@
+.btn{
+    color:white;
+    background: blue;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    /*border: 3px solid #73AD21;*/
+
+    border: 3px solid #080808;
+    padding: 10px;
+  }
+
+  .al{
+    margin:100px 100px 100px 100px;
+  }

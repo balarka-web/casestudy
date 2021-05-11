@@ -14,7 +14,7 @@
 
 #booking {
 	font-family: 'Lato', sans-serif;
-	/*background-image: url("./assets/images/img1.jpg");*/
+	background-image: url("/assets/images/img1.jpg");
 	background-size: cover;
 	background-position: center;
 	color: #191a1e;
@@ -24,7 +24,7 @@
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
 }*/
 
-.booking-form {
+#booking-form {
 	position: relative;
 	background: rgb(211, 238, 202);
 	/*background: #fff;*/

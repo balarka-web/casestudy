@@ -642,9 +642,9 @@ const connectionParams={
 
 
 
+//before modification oriignal running
 
-
-const express = require('express');
+/*const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 const app=express();
@@ -664,7 +664,13 @@ app.get("/register",function(req,res){
 })
 app.listen(3000,function(){
   console.log("server running on 3000");
-})
+})*/
+
+
+
+
+
+
 
 /*app.get("/register", function(req, res){
     
@@ -696,6 +702,15 @@ app.listen(3000,function(){
 
    
 //});
+
+
+
+
+
+
+
+
+//before code means modification
 
 app.post("/register", function(req, res){
    
@@ -746,4 +761,55 @@ mongoose.connect(url,connectionParams).then(()=>{
 app.get('/register',(req,res) =>{
   res.sendFile(path.join(__dirname + '/app/registration.component.html'));
 })
+
+
+
+
+
+
+
+
+
+/*const express=require('express');
+const bodyParser=required=require('body-parser');
+const path=require('path');
+
+const api=require('./server/routes/api');
+
+
+const port=3000;
+
+const app=express();
+
+app.use(express.static(path.join(__dirname,'/')))
+
+
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(bodyParser.json());
+
+app.use('/api',api);
+
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'/'));
+
+});
+
+app.listen(port,function(){
+  console.log("server running on" + port);
+})*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

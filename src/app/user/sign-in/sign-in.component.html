@@ -1,3 +1,9 @@
+<div class="img">
+
+
+<div class="al">
+
+
 <form #signInForm="ngForm"  (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
   
     <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
@@ -10,9 +16,20 @@
     <div *ngIf="signInForm.submitted && password.errors?.minlength">
       <label class="validation-message">Minimum 4 characters.</label>
     </div>
+  
+  
+    <br><br><br>
     <input type="submit" value="Sign In">
+    <input type="submit" value="Cancel">
   </form>
+  
+  
   <!-- Error message -->
 <div class="alert" *ngIf="serverErrorMessages">
     {{serverErrorMessages}}
   </div>
+
+
+</div>
+
+</div>

@@ -54,7 +54,13 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthGuard } from './auth/auth.guard'
 import { UserService } from './shared/user.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { PaymentComponent } from './payment/payment.component'
+import { PaymentComponent } from './payment/payment.component';
+import { HelpComponent } from './help/help.component'
+
+
+import { MatStepperModule } from '@angular/material/stepper';
+
+
 
 
 
@@ -73,7 +79,8 @@ import { PaymentComponent } from './payment/payment.component'
     SignUpComponent,
     SignInComponent,
     UserProfileComponent,
-    PaymentComponent
+    PaymentComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +104,8 @@ import { PaymentComponent } from './payment/payment.component'
   MatSelectModule,
   
   MatRadioModule,
+
+  MatStepperModule,
   
     RouterModule.forRoot(appRoutes)
 
